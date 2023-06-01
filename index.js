@@ -16,6 +16,16 @@ var io = new socket_io_1.Server(server, {
         methods: ["GET", "POST"],
     },
 });
+// ----------
+// Heartbeat
+// ----------
+var heartbeatInterval;
+if (heartbeatInterval)
+    clearInterval(heartbeatInterval);
+heartbeatInterval = setInterval(function () {
+    io.emit("heartbeat");
+}, 2000);
+// ----------
 io.on("connection", function (socket) {
     console.log("connected");
     socket.on("offer", function (data) { return socket.broadcast.emit("offer", data); });

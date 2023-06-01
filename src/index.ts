@@ -14,6 +14,10 @@ const io = new Server(server, {
   },
 });
 
+app.get("/health", (req, res) => {
+  res.send("v1.2");
+});
+
 // ----------
 // Heartbeat
 // ----------

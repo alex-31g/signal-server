@@ -16,6 +16,9 @@ var io = new socket_io_1.Server(server, {
         methods: ["GET", "POST"],
     },
 });
+app.get("/health", function (req, res) {
+    res.send("v1.2");
+});
 // ----------
 // Heartbeat
 // ----------

@@ -16,19 +16,9 @@ var io = new socket_io_1.Server(server, {
         methods: ["GET", "POST"],
     },
 });
-app.get("/health", function (req, res) {
-    res.send("v1.2");
+app.get("/v", function (req, res) {
+    res.send("v1.3");
 });
-// ----------
-// Heartbeat
-// ----------
-var heartbeatInterval;
-if (heartbeatInterval)
-    clearInterval(heartbeatInterval);
-heartbeatInterval = setInterval(function () {
-    io.emit("heartbeat");
-}, 2000);
-// ----------
 io.on("connection", function (socket) {
     console.log("connected");
     socket.on("offer", function (data) { return socket.broadcast.emit("offer", data); });

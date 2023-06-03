@@ -10,6 +10,8 @@
 - signal-server:
 
   - C:\Users\Oleksandr\Documents\dev\github\signal-server
+  - do `npm run build`
+  - do commit
   - deployed automatically from a public repo to https://adaptable.io/ after commit
   - to auth on adaptable use git alex-31g
   - signal-server deployed link https://signal-server.adaptable.app

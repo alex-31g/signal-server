@@ -14,23 +14,9 @@ const io = new Server(server, {
   },
 });
 
-app.get("/health", (req, res) => {
-  res.send("v1.2");
+app.get("/v", (req, res) => {
+  res.send("v1.3");
 });
-
-// ----------
-// Heartbeat
-// ----------
-
-let heartbeatInterval;
-
-if (heartbeatInterval) clearInterval(heartbeatInterval);
-
-heartbeatInterval = setInterval(() => {
-  io.emit("heartbeat");
-}, 2000);
-
-// ----------
 
 io.on("connection", (socket: Socket) => {
   console.log("connected");
